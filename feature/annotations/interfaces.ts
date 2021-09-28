@@ -27,3 +27,36 @@ const printVehicle = (vehicle: Vehicle) : void => {
 }
 
 printVehicle(oldCivic)
+
+// Refactoring with generic terms:
+interface Reportable {    
+    summary(): string;
+}
+
+const oldCivic2 = {
+    name: 'civic2',    
+    year: new Date(),
+    broken: true,
+    summary(): string {
+        return `Name: ${this.name}`;
+    }
+};
+
+const drink = {
+    name: 'coke',    
+    sugar: 40,
+    carbonated: true,
+    summary(): string {
+        return `Name: ${this.name}`;
+    }
+};
+
+const printSummary = (item: Reportable) : void => {    
+    console.log(item.summary())
+}
+
+printSummary(oldCivic2)
+printSummary(drink)
+
+// interface: gatekeep to 'some function'
+// object passed as a parameter must satisfy the interface to work with some function.
