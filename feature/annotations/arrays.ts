@@ -31,3 +31,17 @@ importantDates.push(1002);
 // Tuples in TypeScript(Typed Arrays)
 // Any time we need to represent a collection of records with some arbitrary sort order
 // Array-like structure where each element represents some property of a record
+
+// Tuples in Action
+const drink = {
+    color: 'brown',
+    carbonated: true,
+    sugar: 40
+};
+
+type Drink = [string, boolean, number];
+const pepsi : Drink = ['brown', true, 40]
+const tea : Drink = ['green', false, 10]
+
+// Why Tuples
+
