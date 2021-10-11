@@ -1,13 +1,15 @@
 // In general, any file that houses class in single file in TS, import the class from elsewhere and use it there.
 
 import faker from 'faker';
+import { Mappable } from './CustomMap';
 
-export class User {
+export class User implements Mappable {
   name: string;
   location: {
     lat: number;
     lng: number;
   };
+  color: string;
 
   constructor() {
     this.name = faker.name.firstName();
@@ -15,6 +17,14 @@ export class User {
       lat: parseFloat(faker.address.latitude()),
       lng: parseFloat(faker.address.longitude()),
     };
+    this.color = 'red';
+  }
+
+  markerContent(): string {
+    return `
+    User Name : ${this.name}
+    Color : ${this.color}    
+    `;
   }
 }
 
